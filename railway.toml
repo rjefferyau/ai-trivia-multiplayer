@@ -1,17 +1,5 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm run build"
 
 [deploy]
 startCommand = "npm start"
-restartPolicyType = "on-failure"
-restartPolicyMaxRetries = 3
-
-[healthcheck]
-path = "/"
-port = 3000
-timeout = 300
-
-[[services]]
-name = "web"
-port = 3000

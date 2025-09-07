@@ -289,7 +289,7 @@ export default function LobbyPage() {
               <CardContent>
                 {publicRooms && publicRooms.length > 0 ? (
                   <div className="space-y-2">
-                    {publicRooms.map((room) => (
+                    {publicRooms.map((room: any) => (
                       <div
                         key={room._id}
                         className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50"
@@ -300,7 +300,7 @@ export default function LobbyPage() {
                             {room.participantCount}/{room.settings.maxPlayers} players
                           </p>
                           <div className="flex gap-1 mt-1">
-                            {room.settings.categories.slice(0, 3).map(cat => (
+                            {room.settings.categories.slice(0, 3).map((cat: string) => (
                               <Badge key={cat} variant="secondary" className="text-xs">
                                 {cat}
                               </Badge>

@@ -2,7 +2,7 @@ import { v } from "convex/values";
 import { mutation, query, action } from "./_generated/server";
 import { api } from "./_generated/api";
 
-export const generateQuestions = action({
+export const generateQuestions: any = action({
   args: {
     roomId: v.id("gameRooms"),
     round: v.number(),

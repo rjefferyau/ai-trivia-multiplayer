@@ -41,7 +41,7 @@ export const startGame = action({
   },
 });
 
-export const nextRound = action({
+export const nextRound: any = action({
   args: {
     roomId: v.id("gameRooms"),
   },

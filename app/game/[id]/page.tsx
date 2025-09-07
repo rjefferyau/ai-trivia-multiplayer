@@ -55,7 +55,7 @@ export default function GamePage() {
   const handleReady = async () => {
     if (!currentUser || !room) return;
     
-    const participant = room.participants.find(p => p.userId === currentUser._id);
+    const participant = room.participants.find((p: any) => p.userId === currentUser._id);
     if (!participant) return;
 
     try {
@@ -137,7 +137,7 @@ export default function GamePage() {
   }
 
   const isHost = room.hostId === currentUser?._id;
-  const myParticipant = room.participants.find(p => p.userId === currentUser?._id);
+  const myParticipant = room.participants.find((p: any) => p.userId === currentUser?._id);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 p-4">
@@ -168,7 +168,7 @@ export default function GamePage() {
                 <CardTitle>Players</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                {room.participants.map((participant) => (
+                {room.participants.map((participant: any) => (
                   <div
                     key={participant._id}
                     className="flex items-center justify-between p-2 rounded-lg bg-gray-50"
@@ -229,7 +229,7 @@ export default function GamePage() {
                   <div className="mt-2">
                     <span>Categories:</span>
                     <div className="flex flex-wrap gap-1 mt-1">
-                      {room.settings.categories.map((cat) => (
+                      {room.settings.categories.map((cat: string) => (
                         <Badge key={cat} variant="secondary" className="text-xs">
                           {cat}
                         </Badge>
@@ -267,7 +267,7 @@ export default function GamePage() {
                         {myParticipant.isReady ? "Not Ready" : "Ready to Start"}
                       </Button>
                     )}
-                    {isHost && room.participants.every(p => p.isReady) && room.participants.length >= 2 && (
+                    {isHost && room.participants.every((p: any) => p.isReady) && room.participants.length >= 2 && (
                       <p className="text-green-600 mt-4">
                         All players ready! Game will start automatically.
                       </p>
@@ -292,7 +292,7 @@ export default function GamePage() {
                   <p className="text-lg">{currentQuestion.content}</p>
                   
                   <div className="grid grid-cols-2 gap-3">
-                    {currentQuestion.options?.map((option) => (
+                    {currentQuestion.options?.map((option: any) => (
                       <Button
                         key={option.id}
                         onClick={() => handleSubmitAnswer(option.id)}
@@ -334,8 +334,8 @@ export default function GamePage() {
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold">Final Scores:</h3>
                     {room.participants
-                      .sort((a, b) => b.score - a.score)
-                      .map((participant, index) => (
+                      .sort((a: any, b: any) => b.score - a.score)
+                      .map((participant: any, index: number) => (
                         <div
                           key={participant._id}
                           className="flex items-center justify-between p-3 rounded-lg bg-gray-50"

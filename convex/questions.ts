@@ -27,7 +27,7 @@ export const generateQuestions: any = action({
         // Fact-check the question
         const factCheck = await ctx.runAction(api.ai.factCheckQuestion, {
           question: question.content,
-          answer: question.options.find(opt => opt.id === question.correctAnswer)?.text || "",
+          answer: question.options.find((opt: any) => opt.id === question.correctAnswer)?.text || "",
           explanation: question.explanation,
         });
 

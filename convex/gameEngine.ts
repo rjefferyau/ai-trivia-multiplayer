@@ -28,14 +28,8 @@ export const startGame = action({
       currentQuestionIndex: 0,
     });
 
-    // Generate questions for the first round
-    await ctx.runAction(api.questions.generateQuestions, {
-      roomId: args.roomId,
-      round: 1,
-      categories: room.settings.categories,
-      difficulty: room.settings.difficulty,
-      count: room.settings.questionsPerRound,
-    });
+    // Questions will be generated when needed during gameplay
+    console.log("Game started, questions will be generated on demand");
 
     return { success: true };
   },
@@ -80,14 +74,8 @@ export const nextRound: any = action({
       currentQuestionIndex: 0,
     });
 
-    // Generate questions for the next round
-    await ctx.runAction(api.questions.generateQuestions, {
-      roomId: args.roomId,
-      round: nextRound,
-      categories: room.settings.categories,
-      difficulty: room.settings.difficulty,
-      count: room.settings.questionsPerRound,
-    });
+    // Questions will be generated when needed during gameplay
+    console.log(`Round ${nextRound} started, questions will be generated on demand`);
 
     return { nextRound };
   },
